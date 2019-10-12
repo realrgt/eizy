@@ -1,4 +1,5 @@
 export class Employee {
-  name: string;
-  period: string;
+  id: number;
+  nome: string;
+  turno: string;
 }

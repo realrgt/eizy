@@ -10,14 +10,22 @@ import { Employee } from './employee';
 export class EmployeeComponent implements OnInit {
 
   employees: Employee[];
+  panelOpenState = false;
 
-  constructor(
-    private employeeService: EmployeeService
-  ) { }
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
-    this.employeeService.getEmployees()
-      .subscribe(docs => this.employees = docs);
+    this.employeeService
+      .getEmployees()
+      .subscribe(docs => (this.employees = docs));
+  }
+
+  update() {
+
+  }
+
+  delete() {
+
   }
 
 }
