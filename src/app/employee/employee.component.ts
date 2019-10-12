@@ -28,4 +28,8 @@ export class EmployeeComponent implements OnInit {
 
   }
 
+  onSelect(event) {
+    console.log(event);
+  }
+
 }
