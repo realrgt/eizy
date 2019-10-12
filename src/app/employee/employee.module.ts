@@ -12,12 +12,14 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { FilterComponent } from './filter/filter.component';
+import { FilterByPeriodPipe } from './filter-by-period.pipe';
 
 
 @NgModule({
   declarations: [
     EmployeeComponent,
-    FilterComponent
+    FilterComponent,
+    FilterByPeriodPipe
   ],
   imports: [
     CommonModule,

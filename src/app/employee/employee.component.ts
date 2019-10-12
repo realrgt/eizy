@@ -8,28 +8,23 @@ import { Employee } from './employee';
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
-
   employees: Employee[];
   panelOpenState = false;
+
+  selected = 'todos';
 
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
-    this.employeeService
-      .getEmployees()
-      .subscribe(docs => (this.employees = docs));
+    this.employeeService.getEmployees().subscribe(docs => this.employees = docs);
   }
 
-  update() {
+  update() {}
 
-  }
+  delete() {}
 
-  delete() {
-
-  }
-
-  onSelect(event) {
+  onSelect(event: any) {
     console.log(event);
+    this.selected = event;
   }
-
 }

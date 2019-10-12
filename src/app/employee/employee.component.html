@@ -35,7 +35,7 @@
 
   <mat-accordion class="example-headers-align" style="width: 100%">
 
-    <mat-expansion-panel *ngFor="let employee of employees"
+    <mat-expansion-panel *ngFor="let employee of employees | filterByTurno: selected"
       (opened)="panelOpenState = true"
       (closed)="panelOpenState = false">
 

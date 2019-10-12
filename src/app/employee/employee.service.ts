@@ -15,7 +15,7 @@ export class EmployeeService {
 
   getEmployees() {
     return this.http.get<Employee[]>(this.API + '/empregados').pipe(
-      tap(console.log)
+      // tap(console.log)
     );
   }
 

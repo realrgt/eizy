@@ -10,7 +10,7 @@ export class FilterComponent {
 
   @Output() emitter = new EventEmitter();
 
-  options = ['Matutino', 'Diurno', 'Noturno'];
+  options = ['matutino', 'diurno', 'noturno'];
 
   constructor() {}
 
