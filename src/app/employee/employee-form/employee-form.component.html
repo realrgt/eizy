@@ -6,12 +6,13 @@
 
     <form [formGroup]="form">
       <mat-form-field>
-        <input matInput placeholder="Nome do empregado">
+        <input matInput placeholder="Nome do empregado" formControlName="nome">
+        <mat-error *ngIf="form.get('nome').invalid">Nome do empregado eh obrigatorio!</mat-error>
       </mat-form-field>
 
       <app-filter (emitter)="onSelect($event)"></app-filter>
 
-      <button color="primary" mat-raised-button (click)="onSubmit(form)">Adicionar</button>
+      <button [disabled]="form.invalid" color="primary" mat-raised-button (click)="onSubmit()">Adicionar</button>
     </form>
 
   </mat-card>

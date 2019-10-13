@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from './employee.service';
 
 import { Employee } from './employee';
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
+
   employees: Employee[];
   panelOpenState = false;
 
@@ -32,7 +33,7 @@ export class EmployeeComponent implements OnInit {
 
   delete() {}
 
-  onSelect(event: any) {
+  onSelect(event) {
     console.log(event);
     this.selected = event;
   }
