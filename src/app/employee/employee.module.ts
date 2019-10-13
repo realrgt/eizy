@@ -13,6 +13,7 @@ import {
 } from '@angular/material';
 import { FilterComponent } from './filter/filter.component';
 import { FilterByPeriodPipe } from './filter-by-period.pipe';
+import { EmployeeFormModule } from './employee-form/employee-form.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FilterByPeriodPipe } from './filter-by-period.pipe';
   imports: [
     CommonModule,
     HttpClientModule,
+    EmployeeFormModule,
 
     MatExpansionModule,
     MatFormFieldModule,

@@ -31,7 +31,12 @@
 
   <!-- Resources -->
 
-  <app-filter (emitter)="onSelect($event)"></app-filter>
+  <div class="def-menu">
+
+    <app-filter (emitter)="onSelect($event)"></app-filter>
+    <button mat-button color="accent" style="margin-left: 4%;" (click)="onAdd()">Add</button>
+
+  </div>
 
   <mat-accordion class="example-headers-align" style="width: 100%">
 

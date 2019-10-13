@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from './employee.service';
+
 import { Employee } from './employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -13,10 +15,17 @@ export class EmployeeComponent implements OnInit {
 
   selected = 'todos';
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.employeeService.getEmployees().subscribe(docs => this.employees = docs);
+  }
+
+  onAdd() {
+    this.router.navigate(['form']);
   }
 
   update() {}
