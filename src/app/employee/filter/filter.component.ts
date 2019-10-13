@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Output, EventEmitter, Component } from '@angular/core';
 
 @Component({
   selector: 'app-filter',

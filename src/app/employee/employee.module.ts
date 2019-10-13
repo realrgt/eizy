@@ -9,30 +9,28 @@ import {
   MatIconModule,
   MatInputModule,
   MatButtonModule,
-  MatSelectModule
 } from '@angular/material';
-import { FilterComponent } from './filter/filter.component';
 import { FilterByPeriodPipe } from './filter-by-period.pipe';
 import { EmployeeFormModule } from './employee-form/employee-form.module';
+import { FilterModule } from './filter/filter.module';
 
 
 @NgModule({
   declarations: [
     EmployeeComponent,
-    FilterComponent,
     FilterByPeriodPipe
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     EmployeeFormModule,
+    FilterModule,
 
     MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
   ]
 })
 export class EmployeeModule {}

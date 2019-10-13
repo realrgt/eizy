@@ -32,4 +32,8 @@ export class EmployeeFormComponent implements OnInit {
     .subscribe(doc => console.log(doc));
   }
 
+  onSelect(event) {
+    console.log(event);
+  }
+
 }

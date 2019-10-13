@@ -9,11 +9,8 @@
         <input matInput placeholder="Nome do empregado">
       </mat-form-field>
 
-      <mat-form-field>
-        <mat-select placeholder="Selecionar turno">
-          <mat-option value="option">Option</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-filter (emitter)="onSelect($event)"></app-filter>
+
       <button color="primary" mat-raised-button (click)="onSubmit(form)">Adicionar</button>
     </form>
 

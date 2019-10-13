@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EmployeeFormComponent } from './employee-form.component';
 import { MatFormFieldModule, MatSelectModule, MatIconModule, MatInputModule, MatButtonModule, MatCardModule } from '@angular/material';
+import { FilterModule } from '../filter/filter.module';
 
 
 
@@ -15,6 +16,8 @@ import { MatFormFieldModule, MatSelectModule, MatIconModule, MatInputModule, Mat
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
+    FilterModule,
 
     MatFormFieldModule,
     MatIconModule,
