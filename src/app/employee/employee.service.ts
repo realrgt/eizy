@@ -19,4 +19,8 @@ export class EmployeeService {
     );
   }
 
+  addEmployee(employee: Employee) {
+    return this.http.post(`${this.API}/empregados`, employee);
+  }
+
 }
