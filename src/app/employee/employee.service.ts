@@ -15,7 +15,7 @@ export class EmployeeService {
 
   getEmployees() {
     return this.http.get<Employee[]>(this.API + '/empregados').pipe(
-      // tap(console.log)
+      take(1)
     );
   }
 
@@ -25,6 +25,19 @@ export class EmployeeService {
         tap(console.log),
         take(1)
       );
+  }
+
+  updateEmployee(id: number, employee: Employee) {
+    return this.http.put(`${this.API}/empregados/${id}`, employee).pipe(
+      tap(console.log),
+      take(1)
+    );
+  }
+
+  deleteEmployee(id: number) {
+    return this.http.delete(`${this.API}/empregados/${id}`).pipe(
+      take(1)
+    );
   }
 
 }
