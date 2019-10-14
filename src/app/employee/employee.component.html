@@ -35,46 +35,66 @@
 
     <app-filter (emitter)="onSelect($event)"></app-filter>
     <button mat-button color="accent" style="margin-left: 4%;" (click)="onAdd()">Add</button>
+    <button mat-button color="primary" style="margin-left: 4%;" (click)="onPrint()">Print</button>
 
   </div>
 
-  <mat-accordion class="example-headers-align" style="width: 100%; margin-top: 10px;">
+  <div id="table" style="width: 100%">
 
-    <mat-expansion-panel *ngFor="let employee of employees | filterByTurno: selected" (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false">
-
-      <mat-expansion-panel-header  (click)="onClick(employee)">
+    <mat-expansion-panel [disabled]="true" [hideToggle]="true" class="example-headers-align" style="width: 100%">
+      <mat-expansion-panel-header>
         <mat-panel-title>
-          {{ employee.id }}
+          <strong>ID</strong>
         </mat-panel-title>
         <mat-panel-title>
-          {{ employee.nome | uppercase }}
+          <strong>Nome</strong>
         </mat-panel-title>
         <mat-panel-description>
-          {{ employee.turno | titlecase }}
-          <mat-icon>account_circle</mat-icon>
+          <strong>Turno</strong>
+          <!-- <mat-icon>account_circle</mat-icon> -->
         </mat-panel-description>
       </mat-expansion-panel-header>
-
-      <form [formGroup]="form" class="forms-container">
-        <mat-form-field>
-          <input matInput placeholder="Nome" formControlName="nome">
-        <mat-error *ngIf="form.get('nome').invalid">Informe o nome!</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-select placeholder="Selecionar turno" formControlName="turno">
-            <mat-option *ngFor="let op of ops" [value]="op">{{ op | titlecase }}</mat-option>
-          </mat-select>
-        <mat-error *ngIf="form.get('turno').invalid">Selecione um turno!</mat-error>
-        </mat-form-field>
-
-        <button mat-raised-button color="accent" style="margin-left: 4%;" (click)="update(employee)">Update</button>
-        <button mat-raised-button color="warn" style="margin-left: 4%;" (click)="delete(employee.id)">Delete</button>
-      </form>
     </mat-expansion-panel>
 
-  </mat-accordion>
+    <mat-accordion class="example-headers-align" style="width: 100%; margin-top: 10px;">
+
+      <mat-expansion-panel *ngFor="let employee of employees | filterByTurno: selected" (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+
+        <mat-expansion-panel-header (click)="onClick(employee)">
+          <mat-panel-title>
+            {{ employee.id }}
+          </mat-panel-title>
+          <mat-panel-title>
+            {{ employee.nome | uppercase }}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{ employee.turno | titlecase }}
+            <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]="form" class="forms-container">
+          <mat-form-field>
+            <input matInput placeholder="Nome" formControlName="nome">
+            <mat-error *ngIf="form.get('nome').invalid">Informe o nome!</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select placeholder="Selecionar turno" formControlName="turno">
+              <mat-option *ngFor="let op of ops" [value]="op">{{ op | titlecase }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('turno').invalid">Selecione um turno!</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button color="accent" style="margin-left: 4%;" (click)="update(employee)">Update</button>
+          <button mat-raised-button color="warn" style="margin-left: 4%;" (click)="delete(employee.id)">Delete</button>
+        </form>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+  </div>
 
 
 

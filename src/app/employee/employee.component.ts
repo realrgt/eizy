@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
+import * as html2PDF from 'html2pdf.js';
+
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -48,7 +50,7 @@ export class EmployeeComponent implements OnInit {
     if (this.form.valid) {
       this.employeeService.updateEmployee(employee.id, this.form.value)
         .subscribe();
-        window.location.reload();
+      window.location.reload();
     }
 
 
@@ -71,6 +73,25 @@ export class EmployeeComponent implements OnInit {
     console.log(employee);
     this.form.get('nome').patchValue(employee.nome);
     this.form.get('turno').patchValue(employee.turno);
+  }
+
+  onPrint() {
+
+    const name = prompt('Nome do relatorio:', 'relatorio') + '.pdf';
+    const options = {
+      margin: 1,
+      filename: name,
+      // filename: 'myfile.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    const content = document.getElementById('table');
+
+    html2PDF().from(content).set(options).save();
+    // window.print(content);
+
   }
 
 }
