@@ -8,6 +8,7 @@ import { EmployeeModule } from './employee/employee.module';
 import { HomeModule } from './home/home.module';
 import { AuthService } from './core/auth.service';
 import { AuthGuard } from './core/auth.guard';
+import { MatButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AuthGuard } from './core/auth.guard';
     BrowserAnimationsModule,
     EmployeeModule,
     HomeModule,
+    MatButtonModule,
     AppRoutingModule,
   ],
   providers: [AuthService, AuthGuard],
