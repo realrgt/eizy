@@ -6,7 +6,7 @@ import { EmployeeFormComponent } from './employee/employee-form/employee-form.co
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'employees' },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
   { path: 'employees', component: EmployeeComponent },
   { path: 'form', component: EmployeeFormComponent }

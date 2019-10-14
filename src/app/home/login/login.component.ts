@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/core/user';
+import { UserService } from 'src/app/core/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,17 +11,24 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  options: FormGroup;
+  users: User[];
+  form: FormGroup;
   hide = true;
 
-  constructor(fb: FormBuilder, private router: Router) {
-    this.options = fb.group({
-      hideRequired: false,
-      floatLabel: 'auto',
-    });
-  }
+  constructor(
+    private userService: UserService,
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+
+    this.form = this.fb.group({
+      id: [null],
+      username: [null],
+      password: [null]
+    });
+
   }
 
   login() {

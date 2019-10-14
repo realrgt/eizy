@@ -5,10 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { MatFormFieldModule,  MatIconModule, MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { LogoutComponent } from './logout/logout.component';
+import { HomeComponent } from './home.component';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, LogoutComponent, HomeComponent],
   imports: [
     CommonModule,
     FormsModule,
