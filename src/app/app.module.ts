@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeModule } from './employee/employee.module';
 import { HomeModule } from './home/home.module';
+import { AuthService } from './core/auth.service';
+import { AuthGuard } from './core/auth.guard';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { HomeModule } from './home/home.module';
     HomeModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
