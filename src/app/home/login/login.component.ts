@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,37 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  options: FormGroup;
+  form: FormGroup;
   hide = true;
+  private formSubmitAttempt: boolean;
 
-  constructor(fb: FormBuilder, private router: Router) {
-    this.options = fb.group({
-      hideRequired: false,
-      floatLabel: 'auto',
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
+    this.form = fb.group({
+      id: [null],
+      username: [null, Validators.required],
+      password: [null, Validators.required]
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login() {
-    this.router.navigate(['employees']);
+    if (this.form.valid) {
+      this.router.navigate(['employees']);
+    }
   }
 
+  isFieldInvalid(field: string) {
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.formSubmitAttempt)
+    );
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      this.authService.login(this.form.value);
+    }
+    this.formSubmitAttempt = true;
+  }
 }
