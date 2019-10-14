@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeModule } from './employee/employee.module';
-import { HomeModule } from './home/home.module';
 import { AuthService } from './core/auth.service';
 import { AuthGuard } from './core/auth.guard';
+import { HomeModule } from './home/home.module';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 
 @NgModule({

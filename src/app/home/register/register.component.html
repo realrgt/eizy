@@ -1,0 +1,29 @@
+<!-- Resources -->
+<mat-card style="width: 900px;" class="example-container">
+
+    <mat-card-title style="margin-bottom: 50px">Register</mat-card-title>
+
+    <form [formGroup]="form" style="width: 100%; display: flex; flex-direction: column">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Enter your username" formControlName="username">
+        <mat-error *ngIf="isFieldInvalid('username')">
+          Please inform your user name
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="isFieldInvalid('password')">
+          Please inform your password
+        </mat-error>
+      </mat-form-field>
+    </form>
+
+    <button color="primary" mat-raised-button (click)="onSubmit()">Login</button>
+  </mat-card>

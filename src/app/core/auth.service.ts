@@ -11,6 +11,11 @@ export class AuthService {
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   users: User[];
 
+  user = {
+    name: 'rgt',
+    pass: '1234'
+  };
+
   get isLoggedIn() {
     return this.loggedIn.asObservable();
   }
@@ -28,7 +33,7 @@ export class AuthService {
   }
 
   login(user: User) {
-    if (user.username === 'rgt' && user.password === '1234' ) {
+    if (user.username === this.user.name && user.password === this.user.pass ) {
       this.loggedIn.next(true);
       this.router.navigate(['employees']);
     } else {
@@ -40,4 +45,12 @@ export class AuthService {
     this.loggedIn.next(false);
     this.router.navigate(['']);
   }
+
+  register(user: User) {
+    this.user.name = user.username;
+    this.user.pass = user.password;
+    this.router.navigate(['login']);
+
+  }
+
 }
